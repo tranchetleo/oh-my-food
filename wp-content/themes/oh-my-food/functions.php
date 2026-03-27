@@ -30,6 +30,21 @@ function wpchild_enqueue_scripts(){
   wp_enqueue_script( 'oh-my-food-script', get_stylesheet_directory_uri() . '/script.js', array('jquery'), '', true );
 }
 
+/* Renomme l'item Home du menu principal en Accueil sans casser le menu WordPress. */
+add_filter( 'wp_nav_menu_objects', 'oh_my_food_rename_home_menu_item', 10, 2 );
+function oh_my_food_rename_home_menu_item( $items, $args ) {
+    if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
+        return $items;
+    }
+
+    foreach ( $items as $item ) {
+        if ( isset( $item->title ) && 'Home' === trim( wp_strip_all_tags( $item->title ) ) ) {
+            $item->title = 'Accueil';
+        }
+    }
+
+    return $items;
+}
 
 
 

@@ -112,7 +112,7 @@ small,
 
 .omf-hero {
     position: relative;
-    min-height: clamp(480px, 72vh, 760px);
+    min-height: calc(100vh - 80px);
     background-image: url('home_hero.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -133,10 +133,20 @@ small,
     text-align: center;
 }
 
+.omf-hero__eyebrow {
+    margin: 0 0 20px;
+    color: var(--omf-color-primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+}
+
 .omf-hero__title {
     margin: 0 0 20px;
     line-height: 1.1;
     color: var(--omf-color-text);
+    text-wrap: balance;
 }
 
 .omf-hero__subtitle {
@@ -288,6 +298,82 @@ small,
     width: min(calc(100% - 48px), var(--omf-content-width));
     margin: 0 auto 40px;
     padding: 0 0 12px;
+}
+
+.omf-home-restaurants {
+    padding: 76px 24px 96px;
+}
+
+.omf-home-restaurants__inner {
+    width: min(100%, 920px);
+    margin: 0 auto;
+}
+
+.omf-home-restaurants__title {
+    margin: 0 0 34px;
+    text-align: center;
+    font-size: clamp(28px, 3vw, 36px) !important;
+}
+
+.omf-home-restaurants__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 28px;
+}
+
+.omf-restaurant-card {
+    min-width: 0;
+}
+
+.omf-restaurant-card__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.omf-restaurant-card__media {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(17, 17, 17, 0.08);
+    box-shadow: 0 14px 28px rgba(17, 17, 17, 0.08);
+}
+
+.omf-restaurant-card__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--omf-transition), filter var(--omf-transition);
+}
+
+.omf-restaurant-card__content {
+    padding: 12px 4px 0;
+}
+
+.omf-restaurant-card__title {
+    margin: 0 0 4px;
+    font-size: 18px !important;
+    line-height: 1.2;
+}
+
+.omf-restaurant-card__subtitle {
+    margin: 0;
+    color: var(--omf-color-text-muted);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.omf-restaurant-card__link:hover .omf-restaurant-card__image,
+.omf-restaurant-card__link:focus-visible .omf-restaurant-card__image {
+    transform: scale(1.03);
+    filter: saturate(1.04);
+}
+
+.omf-restaurant-card__link:focus-visible {
+    outline: 3px solid var(--omf-color-accent);
+    outline-offset: 6px;
+    border-radius: 8px;
 }
 
 .omf-newsletter__inner {
@@ -472,6 +558,10 @@ small,
         background: rgba(198, 167, 94, 0.1);
     }
 
+    .omf-home-restaurants__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     h1 {
         font-size: 48px;
     }
@@ -505,11 +595,11 @@ small,
     }
 
     .omf-hero__overlay {
-        padding: 24px 16px;
+        padding: 48px 16px 56px;
     }
 
     .omf-hero__content {
-        padding: 28px 20px;
+        padding: 16px 8px;
     }
 
     .omf-header__branding {
@@ -519,6 +609,18 @@ small,
     .omf-header__title,
     .omf-header__title-link {
         font-size: 1.35rem;
+    }
+
+    .omf-home-restaurants {
+        padding: 56px 16px 72px;
+    }
+
+    .omf-home-restaurants__title {
+        margin-bottom: 28px;
+    }
+
+    .omf-home-restaurants__grid {
+        gap: 24px 16px;
     }
 
     h1 {
@@ -535,5 +637,9 @@ small,
 
     .omf-newsletter__title {
         font-size: 1.6rem;
+    }
+
+    .omf-home-restaurants__grid {
+        grid-template-columns: 1fr;
     }
 }

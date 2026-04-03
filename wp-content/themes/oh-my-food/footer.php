@@ -9,25 +9,6 @@
 		</div><!-- #primary -->
 	</div><!-- #content -->
 
-	<section class="newsletter-box omf-newsletter" aria-labelledby="newsletter-title">
-		<div class="omf-newsletter__inner">
-			<div class="omf-newsletter__content">
-				<p id="newsletter-title" class="newsletter-title omf-newsletter__title">
-					<?php esc_html_e( 'La newsletter Ohmyfood', 'oh-my-food' ); ?>
-				</p>
-				<p class="newsletter-text omf-newsletter__text">
-					<?php esc_html_e( 'Recevez nos nouveautes, nos coups de coeur et les prochaines adresses a decouvrir directement dans votre boite mail.', 'oh-my-food' ); ?>
-				</p>
-			</div>
-
-			<div class="omf-newsletter__form">
-				<?php echo do_shortcode( '[contact-form-7 id="8cccb11" title="Formulaire newsletters"]' ); ?>
-			</div>
-		</div>
-	</section>
-
-	<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
-
 	<?php
 	$home_url            = home_url( '/' );
 	$about_page          = get_page_by_path( 'a-propos' );

@@ -1,25 +1,22 @@
 <?php
 /**
-* Template Name: Accueil
-*/
+ * Template Name: Accueil
+ */
 
 get_header();
-
 ?>
-<!-- le contenu de la page d'accueil -->
 
-	<div class="entry-content">
-		<p>Bienvenue sur notre site !</p>
-		<p>Ceci est un exemple de contenu pour votre page d’accueil. Vous pouvez y présenter votre entreprise, vos services ou toute information pertinente pour vos visiteurs.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper, lorem nec facilisis vehicula, nunc magna pharetra urna, vitae consequat libero dolor non orci. Donec id sapien in lorem faucibus fermentum.</p>
-		<?php
-		/* 
-		Vous pouvez ajouter ici un bouton ou un lien pour diriger les visiteurs vers une page spécifique.
-		Par exemple, un lien vers une page "À propos" :
-		*/
-		?>
-		<p><a class="btn" href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>">A propos</a></p>
-	</div><!-- .entry-content -->
+<section class="omf-hero" aria-labelledby="omf-hero-title">
+	<div class="omf-hero__overlay">
+		<div class="omf-hero__content">
+			<h1 id="omf-hero-title" class="omf-hero__title">Reservez le menu qui vous convient</h1>
+			<p class="omf-hero__subtitle">Decouvrez des restaurants d'exception, selectionnes par nos soins</p>
+			<a class="omf-button omf-button--primary" href="<?php echo esc_url( home_url( '/restaurant/' ) ); ?>">
+				Explorez nos restaurants
+			</a>
+		</div>
+	</div>
+</section>
 
 <?php
 get_footer();

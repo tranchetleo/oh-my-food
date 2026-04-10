@@ -378,15 +378,24 @@ small,
 }
 
 .omf-restaurant-card__rating {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
     margin: 0 0 8px;
 }
 
+.omf-restaurant-card__rating-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+}
+
 .omf-restaurant-card__star {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     display: block;
 }
 
@@ -396,6 +405,14 @@ small,
     font-size: 12px;
     font-weight: 700;
     line-height: 1;
+}
+
+.omf-restaurant-card__reviews {
+    color: var(--omf-color-text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .omf-restaurant-card__subtitle {

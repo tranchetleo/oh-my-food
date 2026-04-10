@@ -12,6 +12,7 @@ $restaurants = array(
 		'title'   => 'Le Pavillon d Or',
 		'address' => '18 rue des Archives, Paris 4e',
 		'rating'  => 4.5,
+		'reviews' => 128,
 		'is_new'  => true,
 	),
 	array(
@@ -19,12 +20,14 @@ $restaurants = array(
 		'title'   => 'Maison Aveline',
 		'address' => '7 place Bellecour, Lyon 2e',
 		'rating'  => 4.0,
+		'reviews' => 94,
 	),
 	array(
 		'image'   => 'resautant_3.jpg',
 		'title'   => 'L\'Atelier Mazarine',
 		'address' => '42 boulevard Saint Germain, Paris 6e',
 		'rating'  => 4.5,
+		'reviews' => 173,
 		'is_new'  => true,
 	),
 	array(
@@ -32,12 +35,14 @@ $restaurants = array(
 		'title'   => 'Villa Celeste',
 		'address' => '11 quai du Port, Marseille 2e',
 		'rating'  => 3.5,
+		'reviews' => 61,
 	),
 	array(
 		'image'   => 'resautant_5.jpg',
 		'title'   => 'Le Salon Vendome',
 		'address' => '5 rue de la Paix, Paris 2e',
 		'rating'  => 5.0,
+		'reviews' => 212,
 		'is_new'  => true,
 	),
 	array(
@@ -45,18 +50,21 @@ $restaurants = array(
 		'title'   => 'Palais des Saveurs',
 		'address' => '26 cours Mirabeau, Aix en Provence',
 		'rating'  => 4.5,
+		'reviews' => 147,
 	),
 	array(
 		'image'   => 'resautant_7.jpg',
 		'title'   => 'Le Jardin Imperial',
 		'address' => '14 rue de la Monnaie, Lille',
 		'rating'  => 4.0,
+		'reviews' => 83,
 	),
 	array(
 		'image'   => 'resautant_8.jpg',
 		'title'   => 'Maison Saphir',
 		'address' => '33 allee de Tourny, Bordeaux',
 		'rating'  => 4.5,
+		'reviews' => 156,
 		'is_new'  => true,
 	),
 	array(
@@ -64,24 +72,28 @@ $restaurants = array(
 		'title'   => 'Les Terrasses du Roy',
 		'address' => '9 rue du Chapitre, Toulouse',
 		'rating'  => 3.5,
+		'reviews' => 58,
 	),
 	array(
 		'image'   => 'resautant_10.jpg',
 		'title'   => 'Le Comptoir Montaigne',
 		'address' => '21 avenue Montaigne, Paris 8e',
 		'rating'  => 4.0,
+		'reviews' => 109,
 	),
 	array(
 		'image'   => 'resautant_11.jpg',
 		'title'   => 'Manoir des Brumes',
 		'address' => '3 rue du General Lanrezac, Nantes',
 		'rating'  => 4.5,
+		'reviews' => 137,
 	),
 	array(
 		'image'   => 'resautant_12.jpg',
 		'title'   => 'Le Grand Cypres',
 		'address' => '12 place du Theatre, Strasbourg',
 		'rating'  => 4.0,
+		'reviews' => 91,
 	),
 );
 
@@ -130,19 +142,22 @@ get_header();
 							$empty_stars = 5 - $full_stars - ($has_half ? 1 : 0);
 							?>
 							<div class="omf-restaurant-card__rating" aria-label="<?php echo esc_attr(sprintf('Note de %s sur 5', number_format((float) $restaurant['rating'], 1, ',', ''))); ?>">
-								<?php for ($i = 0; $i < $full_stars; $i++) : ?>
-									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['full']); ?>" alt="" aria-hidden="true" loading="lazy" />
-								<?php endfor; ?>
+								<div class="omf-restaurant-card__rating-left">
+									<?php for ($i = 0; $i < $full_stars; $i++) : ?>
+										<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['full']); ?>" alt="" aria-hidden="true" loading="lazy" />
+									<?php endfor; ?>
 
-								<?php if ($has_half) : ?>
-									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['half']); ?>" alt="" aria-hidden="true" loading="lazy" />
-								<?php endif; ?>
+									<?php if ($has_half) : ?>
+										<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['half']); ?>" alt="" aria-hidden="true" loading="lazy" />
+									<?php endif; ?>
 
-								<?php for ($i = 0; $i < $empty_stars; $i++) : ?>
-									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['empty']); ?>" alt="" aria-hidden="true" loading="lazy" />
-								<?php endfor; ?>
+									<?php for ($i = 0; $i < $empty_stars; $i++) : ?>
+										<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['empty']); ?>" alt="" aria-hidden="true" loading="lazy" />
+									<?php endfor; ?>
 
-								<span class="omf-restaurant-card__rating-value"><?php echo esc_html(number_format((float) $restaurant['rating'], 1, ',', '')); ?></span>
+									<span class="omf-restaurant-card__rating-value"><?php echo esc_html(number_format((float) $restaurant['rating'], 1, ',', '')); ?></span>
+								</div>
+								<span class="omf-restaurant-card__reviews">(<?php echo esc_html($restaurant['reviews']); ?> avis)</span>
 							</div>
 							<h3 class="omf-restaurant-card__title"><?php echo esc_html($restaurant['title']); ?></h3>
 							<p class="omf-restaurant-card__subtitle"><?php echo esc_html($restaurant['address']); ?></p>

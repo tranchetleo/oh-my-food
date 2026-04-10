@@ -9,9 +9,10 @@ $restaurant_url = $restaurant_page ? get_permalink($restaurant_page) : home_url(
 $restaurants = array(
 	array(
 		'image'   => 'resautant_1.jpg',
-		'title'   => 'La bouchee de chef',
+		'title'   => 'Le Pavillon d Or',
 		'address' => '18 rue des Archives, Paris 4e',
 		'rating'  => 4.5,
+		'is_new'  => true,
 	),
 	array(
 		'image'   => 'resautant_2.jpg',
@@ -24,6 +25,7 @@ $restaurants = array(
 		'title'   => 'L\'Atelier Mazarine',
 		'address' => '42 boulevard Saint Germain, Paris 6e',
 		'rating'  => 4.5,
+		'is_new'  => true,
 	),
 	array(
 		'image'   => 'resautant_4.jpg',
@@ -36,6 +38,7 @@ $restaurants = array(
 		'title'   => 'Le Salon Vendome',
 		'address' => '5 rue de la Paix, Paris 2e',
 		'rating'  => 5.0,
+		'is_new'  => true,
 	),
 	array(
 		'image'   => 'resautant_6.jpg',
@@ -54,6 +57,7 @@ $restaurants = array(
 		'title'   => 'Maison Saphir',
 		'address' => '33 allee de Tourny, Bordeaux',
 		'rating'  => 4.5,
+		'is_new'  => true,
 	),
 	array(
 		'image'   => 'resautant_9.jpg',
@@ -111,6 +115,9 @@ get_header();
 				<article class="omf-restaurant-card">
 					<a class="omf-restaurant-card__link" href="<?php echo esc_url($restaurant_url); ?>">
 						<div class="omf-restaurant-card__media">
+							<?php if (! empty($restaurant['is_new'])) : ?>
+								<span class="omf-restaurant-card__badge">Nouveau</span>
+							<?php endif; ?>
 							<img class="omf-restaurant-card__image"
 								src="<?php echo esc_url(get_stylesheet_directory_uri() . '/' . $restaurant['image']); ?>"
 								alt="<?php echo esc_attr($restaurant['title']); ?>" loading="lazy" />

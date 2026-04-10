@@ -332,11 +332,31 @@ small,
 }
 
 .omf-restaurant-card__media {
+    position: relative;
     aspect-ratio: 1.618/1;
     overflow: hidden;
     border-radius: 10px;
     background: rgba(17, 17, 17, 0.08);
     box-shadow: 0 14px 28px rgba(17, 17, 17, 0.08);
+}
+
+.omf-restaurant-card__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 18px;
+    border-radius: 999px;
+    border: solid 2px var(--omf-color-primary);
+    background: rgba(248, 246, 242, 0.94);
+    color: var(--omf-color-primary);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 10px 20px rgba(17, 17, 17, 0.12);
 }
 
 .omf-restaurant-card__image {

@@ -1091,6 +1091,10 @@ small,
 }
 
 @media (max-width: 900px) {
+    body {
+        font-size: 14px;
+    }
+
     .omf-header__inner,
     .omf-newsletter__inner,
     .omf-footer__inner,
@@ -1173,6 +1177,33 @@ small,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .omf-hero {
+        min-height: calc(78vh - 80px);
+        background-attachment: scroll;
+    }
+
+    .omf-hero__overlay {
+        padding: 64px 24px 72px;
+    }
+
+    .omf-hero__content {
+        width: min(100%, 680px);
+        padding: 24px 20px;
+    }
+
+    .omf-hero__title {
+        margin-bottom: 18px;
+        font-size: clamp(42px, 7vw, 52px) !important;
+        line-height: 1.02;
+    }
+
+    .omf-hero__subtitle {
+        max-width: 34ch;
+        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 1.45;
+    }
+
     .omf-about-services {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1212,11 +1243,11 @@ small,
     }
 
     h2 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     h3 {
-        font-size: 24px;
+        font-size: 22px;
     }
 }
 
@@ -1240,11 +1271,42 @@ small,
     }
 
     .omf-hero__overlay {
-        padding: 48px 16px 56px;
+        padding: 56px 16px 64px;
     }
 
     .omf-hero__content {
-        padding: 16px 8px;
+        width: 100%;
+        max-width: 32rem;
+        padding: 8px 0;
+    }
+
+    .omf-hero {
+        min-height: calc(72vh - 72px);
+        background-position: center center;
+    }
+
+    .omf-hero__eyebrow {
+        margin-bottom: 16px;
+        letter-spacing: 0.18em;
+    }
+
+    .omf-hero__title {
+        margin-bottom: 16px;
+        font-size: clamp(32px, 11vw, 40px) !important;
+        line-height: 1.04;
+    }
+
+    .omf-hero__subtitle {
+        max-width: 26ch;
+        margin-bottom: 22px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .omf-button--primary {
+        min-height: 52px;
+        padding: 14px 24px;
+        font-size: 16px;
     }
 
     .omf-header__branding {
@@ -1363,15 +1425,15 @@ small,
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     h2 {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .omf-newsletter__title {

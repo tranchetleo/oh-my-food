@@ -23,27 +23,49 @@
 
 	<header id="masthead" class="site-header omf-header">
 		<div class="omf-header__inner">
-			<div class="omf-header__branding">
-				<?php if ( has_custom_logo() ) : ?>
-					<div class="omf-header__logo">
-						<?php the_custom_logo(); ?>
-					</div>
+			<div class="omf-header__bar">
+				<div class="omf-header__branding">
+					<?php if ( has_custom_logo() ) : ?>
+						<div class="omf-header__logo">
+							<?php the_custom_logo(); ?>
+						</div>
+					<?php endif; ?>
+				</div>
+
+				<?php if ( has_nav_menu( 'primary' ) ) : ?>
+					<button
+						class="omf-header__toggle"
+						type="button"
+						aria-expanded="false"
+						aria-controls="omf-primary-menu"
+						aria-label="<?php esc_attr_e( 'Basculer le menu de navigation', 'oh-my-food' ); ?>"
+					>
+						<span class="omf-header__toggle-line" aria-hidden="true"></span>
+						<span class="omf-header__toggle-line" aria-hidden="true"></span>
+						<span class="omf-header__toggle-line" aria-hidden="true"></span>
+						<span class="screen-reader-text">
+							<?php esc_html_e( 'Menu principal', 'oh-my-food' ); ?>
+						</span>
+					</button>
 				<?php endif; ?>
 			</div>
 
-			<nav class="omf-header__nav" aria-label="<?php esc_attr_e( 'Primary menu', 'twentytwentyone' ); ?>">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'primary',
-						'container'      => false,
-						'menu_class'     => 'omf-header__menu',
-						'fallback_cb'    => false,
-						'depth'          => 2,
-					)
-				);
-				?>
-			</nav>
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+				<nav id="site-navigation" class="omf-header__nav" aria-label="<?php esc_attr_e( 'Primary menu', 'twentytwentyone' ); ?>">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'container'      => false,
+							'menu_class'     => 'omf-header__menu',
+							'menu_id'        => 'omf-primary-menu',
+							'fallback_cb'    => false,
+							'depth'          => 2,
+						)
+					);
+					?>
+				</nav>
+			<?php endif; ?>
 		</div>
 	</header>
 

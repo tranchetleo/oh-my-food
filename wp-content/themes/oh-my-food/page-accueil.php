@@ -118,7 +118,7 @@ get_header();
 	</div>
 </section>
 
-<section class="omf-home-restaurants" aria-labelledby="omf-home-restaurants-title">
+<section id="restaurants" class="omf-home-restaurants" aria-labelledby="omf-home-restaurants-title">
 	<div class="omf-home-restaurants__inner">
 		<h2 id="omf-home-restaurants-title" class="omf-home-restaurants__title">Decouvrez les restaurants</h2>
 

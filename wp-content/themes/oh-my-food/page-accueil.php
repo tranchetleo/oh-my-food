@@ -9,7 +9,7 @@ $restaurant_url = $restaurant_page ? get_permalink($restaurant_page) : home_url(
 $restaurants = array(
 	array(
 		'image'   => 'resautant_1.jpg',
-		'title'   => 'Le Pavillon d Or',
+		'title'   => 'La bouchee de chef',
 		'address' => '18 rue des Archives, Paris 4e',
 		'rating'  => 4.5,
 		'reviews' => 128,

@@ -8,65 +8,83 @@ $restaurant_url = $restaurant_page ? get_permalink($restaurant_page) : home_url(
 
 $restaurants = array(
 	array(
-		'image' => 'resautant_1.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Menu signature et service raffine',
+		'image'   => 'resautant_1.jpg',
+		'title'   => 'La bouchee de chef',
+		'address' => '18 rue des Archives, Paris 4e',
+		'rating'  => 4.5,
 	),
 	array(
-		'image' => 'resautant_2.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Cuisine de saison et accords gourmands',
+		'image'   => 'resautant_2.jpg',
+		'title'   => 'Maison Aveline',
+		'address' => '7 place Bellecour, Lyon 2e',
+		'rating'  => 4.0,
 	),
 	array(
-		'image' => 'resautant_3.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Ambiance chaleureuse au coeur de la ville',
+		'image'   => 'resautant_3.jpg',
+		'title'   => 'L\'Atelier Mazarine',
+		'address' => '42 boulevard Saint Germain, Paris 6e',
+		'rating'  => 4.5,
 	),
 	array(
-		'image' => 'resautant_4.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Terrasse elegante et carte creative',
+		'image'   => 'resautant_4.jpg',
+		'title'   => 'Villa Celeste',
+		'address' => '11 quai du Port, Marseille 2e',
+		'rating'  => 3.5,
 	),
 	array(
-		'image' => 'resautant_5.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Adresse intimiste pour diners d exception',
+		'image'   => 'resautant_5.jpg',
+		'title'   => 'Le Salon Vendome',
+		'address' => '5 rue de la Paix, Paris 2e',
+		'rating'  => 5.0,
 	),
 	array(
-		'image' => 'resautant_6.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Saveurs francaises revisitees avec finesse',
+		'image'   => 'resautant_6.jpg',
+		'title'   => 'Palais des Saveurs',
+		'address' => '26 cours Mirabeau, Aix en Provence',
+		'rating'  => 4.5,
 	),
 	array(
-		'image' => 'resautant_7.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Cadre lumineux et cuisine inspiree',
+		'image'   => 'resautant_7.jpg',
+		'title'   => 'Le Jardin Imperial',
+		'address' => '14 rue de la Monnaie, Lille',
+		'rating'  => 4.0,
 	),
 	array(
-		'image' => 'resautant_8.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Selection premium pour vos repas d affaires',
+		'image'   => 'resautant_8.jpg',
+		'title'   => 'Maison Saphir',
+		'address' => '33 allee de Tourny, Bordeaux',
+		'rating'  => 4.5,
 	),
 	array(
-		'image' => 'resautant_9.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Carte contemporaine et produits choisis',
+		'image'   => 'resautant_9.jpg',
+		'title'   => 'Les Terrasses du Roy',
+		'address' => '9 rue du Chapitre, Toulouse',
+		'rating'  => 3.5,
 	),
 	array(
-		'image' => 'resautant_10.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Atmosphere feutree et presentation soignee',
+		'image'   => 'resautant_10.jpg',
+		'title'   => 'Le Comptoir Montaigne',
+		'address' => '21 avenue Montaigne, Paris 8e',
+		'rating'  => 4.0,
 	),
 	array(
-		'image' => 'resautant_11.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Escapade culinaire au decor authentique',
+		'image'   => 'resautant_11.jpg',
+		'title'   => 'Manoir des Brumes',
+		'address' => '3 rue du General Lanrezac, Nantes',
+		'rating'  => 4.5,
 	),
 	array(
-		'image' => 'resautant_12.jpg',
-		'title' => 'La bouchee de chef',
-		'subtitle' => 'Cuisine de chef pour moments memorables',
+		'image'   => 'resautant_12.jpg',
+		'title'   => 'Le Grand Cypres',
+		'address' => '12 place du Theatre, Strasbourg',
+		'rating'  => 4.0,
 	),
+);
+
+$star_icons = array(
+	'full'  => get_stylesheet_directory_uri() . '/star-full.png',
+	'half'  => get_stylesheet_directory_uri() . '/star-half.png',
+	'empty' => get_stylesheet_directory_uri() . '/star-empty.png',
 );
 
 get_header();
@@ -99,8 +117,28 @@ get_header();
 						</div>
 
 						<div class="omf-restaurant-card__content">
+							<?php
+							$full_stars  = (int) floor($restaurant['rating']);
+							$has_half    = ((float) $restaurant['rating'] - $full_stars) >= 0.5;
+							$empty_stars = 5 - $full_stars - ($has_half ? 1 : 0);
+							?>
+							<div class="omf-restaurant-card__rating" aria-label="<?php echo esc_attr(sprintf('Note de %s sur 5', number_format((float) $restaurant['rating'], 1, ',', ''))); ?>">
+								<?php for ($i = 0; $i < $full_stars; $i++) : ?>
+									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['full']); ?>" alt="" aria-hidden="true" loading="lazy" />
+								<?php endfor; ?>
+
+								<?php if ($has_half) : ?>
+									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['half']); ?>" alt="" aria-hidden="true" loading="lazy" />
+								<?php endif; ?>
+
+								<?php for ($i = 0; $i < $empty_stars; $i++) : ?>
+									<img class="omf-restaurant-card__star" src="<?php echo esc_url($star_icons['empty']); ?>" alt="" aria-hidden="true" loading="lazy" />
+								<?php endfor; ?>
+
+								<span class="omf-restaurant-card__rating-value"><?php echo esc_html(number_format((float) $restaurant['rating'], 1, ',', '')); ?></span>
+							</div>
 							<h3 class="omf-restaurant-card__title"><?php echo esc_html($restaurant['title']); ?></h3>
-							<p class="omf-restaurant-card__subtitle"><?php echo esc_html($restaurant['subtitle']); ?></p>
+							<p class="omf-restaurant-card__subtitle"><?php echo esc_html($restaurant['address']); ?></p>
 						</div>
 					</a>
 				</article>

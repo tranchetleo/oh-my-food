@@ -837,26 +837,83 @@ small,
     aspect-ratio: 0.9 / 1;
 }
 
-.omf-restaurant-form {
+.omf-cf7 .wpcf7-form p {
+    margin: 0;
+}
+
+.omf-form-notice {
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(179, 38, 30, 0.35);
+    border-radius: 12px;
+    background: rgba(179, 38, 30, 0.08);
+    color: #5a1f1b;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.omf-cf7 .wpcf7-form-control-wrap {
+    display: block;
+}
+
+.omf-cf7 .wpcf7-not-valid-tip {
+    margin-top: 6px;
+    color: #8a1f11;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.omf-cf7 .wpcf7-form-control.wpcf7-not-valid {
+    border-color: #b3261e !important;
+}
+
+.omf-cf7 .wpcf7-spinner {
+    margin: 0 0 0 8px;
+}
+
+.omf-cf7 .wpcf7-response-output {
+    margin: 16px 0 0 !important;
+    padding: 10px 12px !important;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.omf-cf7 .wpcf7-form.sent .wpcf7-response-output {
+    border-color: rgba(65, 120, 67, 0.6);
+    background: rgba(65, 120, 67, 0.08);
+    color: #214b22;
+}
+
+.omf-cf7 .wpcf7-form.invalid .wpcf7-response-output,
+.omf-cf7 .wpcf7-form.failed .wpcf7-response-output,
+.omf-cf7 .wpcf7-form.unaccepted .wpcf7-response-output,
+.omf-cf7 .wpcf7-form.aborted .wpcf7-response-output {
+    border-color: rgba(179, 38, 30, 0.55);
+    background: rgba(179, 38, 30, 0.08);
+    color: #5a1f1b;
+}
+
+.omf-cf7--reservation .wpcf7-form {
     display: flex;
     flex-direction: column;
     gap: 22px;
 }
 
-.omf-restaurant-form__field {
+.omf-cf7--reservation .wpcf7-form p {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.omf-restaurant-form__field label {
+.omf-cf7--reservation label {
     color: var(--omf-color-text);
     font-size: 18px;
     font-weight: 400;
 }
 
-.omf-restaurant-form__field input,
-.omf-restaurant-form__field textarea {
+.omf-cf7--reservation input:not([type="submit"]),
+.omf-cf7--reservation textarea {
     width: 100%;
     padding: 0 0 10px;
     border: 0;
@@ -868,22 +925,37 @@ small,
     line-height: 1.4;
 }
 
-.omf-restaurant-form__field textarea {
+.omf-cf7--reservation textarea {
     min-height: 76px;
     resize: vertical;
 }
 
-.omf-restaurant-form__field input:focus-visible,
-.omf-restaurant-form__field textarea:focus-visible {
+.omf-cf7--reservation input:not([type="submit"]):focus-visible,
+.omf-cf7--reservation textarea:focus-visible {
     outline: 3px solid rgba(168, 132, 60, 0.4);
     outline-offset: 5px;
     border-bottom-color: var(--omf-color-primary);
 }
 
-.omf-restaurant-form__submit {
+.omf-cf7--reservation .wpcf7-submit {
     width: 100%;
+    min-height: 56px;
+    padding: 14px 28px;
     border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--omf-color-primary), var(--omf-color-primary-light));
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
+    transition: transform var(--omf-transition), box-shadow var(--omf-transition), background-color var(--omf-transition);
+    box-shadow: 0 12px 24px rgba(168, 132, 60, 0.22);
+}
+
+.omf-cf7--reservation .wpcf7-submit:hover,
+.omf-cf7--reservation .wpcf7-submit:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(168, 132, 60, 0.3);
 }
 
 .omf-about-page {
@@ -1214,24 +1286,28 @@ body.omf-modal-open {
 }
 
 .omf-popup__form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
     margin-top: 6px;
 }
 
-.omf-popup__field {
+.omf-popup__form .wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.omf-popup__form .wpcf7-form p {
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.omf-popup__field label {
+.omf-popup__form label {
     font-size: 15px;
     font-weight: 500;
 }
 
-.omf-popup__field input {
+.omf-popup__form input:not([type="submit"]) {
     width: 100%;
     min-height: 48px;
     padding: 12px 14px;
@@ -1242,14 +1318,31 @@ body.omf-modal-open {
     font-size: 15px;
 }
 
-.omf-popup__submit {
+.omf-popup__form .wpcf7-submit {
     width: 100%;
+    min-height: 56px;
+    padding: 14px 28px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--omf-color-primary), var(--omf-color-primary-light));
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform var(--omf-transition), box-shadow var(--omf-transition), background-color var(--omf-transition);
+    box-shadow: 0 12px 24px rgba(168, 132, 60, 0.22);
     margin-top: 4px;
 }
 
+.omf-popup__form .wpcf7-submit:hover,
+.omf-popup__form .wpcf7-submit:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(168, 132, 60, 0.3);
+}
+
 .omf-popup__close:focus-visible,
-.omf-popup__field input:focus-visible,
-.omf-popup__submit:focus-visible {
+.omf-popup__form input:not([type="submit"]):focus-visible,
+.omf-popup__form .wpcf7-submit:focus-visible {
     outline: 3px solid var(--omf-color-accent);
     outline-offset: 3px;
 }
@@ -1636,7 +1729,7 @@ body.omf-modal-open {
         gap: 36px;
     }
 
-    .omf-restaurant-form__field label {
+    .omf-cf7--reservation label {
         font-size: 16px;
     }
 

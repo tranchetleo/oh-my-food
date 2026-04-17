@@ -66,6 +66,63 @@
 			</div>
 		</div>
 	</footer>
+
+	<div id="omf-contest-popup" class="omf-popup" aria-hidden="true" hidden>
+		<div class="omf-popup__overlay" data-omf-popup-close></div>
+		<div
+			class="omf-popup__dialog"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="omf-popup-title"
+			aria-describedby="omf-popup-description omf-popup-sr-note"
+		>
+			<button
+				type="button"
+				class="omf-popup__close"
+				data-omf-popup-close
+				aria-label="<?php esc_attr_e( 'Fermer la fenetre du jeu concours', 'oh-my-food' ); ?>"
+			>
+				<span aria-hidden="true">&times;</span>
+			</button>
+
+			<div class="omf-popup__content">
+				<div class="omf-popup__media">
+					<img
+						class="omf-popup__image"
+						src="<?php echo esc_url( get_stylesheet_directory_uri() . '/service_1.jpg' ); ?>"
+						alt="<?php esc_attr_e( 'Visuel temporaire de la roue du jeu concours Ohmyfood', 'oh-my-food' ); ?>"
+						loading="lazy"
+					/>
+				</div>
+
+				<div class="omf-popup__body">
+					<p class="omf-popup__eyebrow"><?php esc_html_e( 'Jeu concours', 'oh-my-food' ); ?></p>
+					<h2 id="omf-popup-title" class="omf-popup__title"><?php esc_html_e( 'Tentez votre chance !', 'oh-my-food' ); ?></h2>
+					<p id="omf-popup-description" class="omf-popup__text">
+						<?php esc_html_e( 'Participez au tirage et gagnez une experience gastronomique exclusive dans un restaurant partenaire.', 'oh-my-food' ); ?>
+					</p>
+
+					<form class="omf-popup__form" data-omf-popup-form action="#" method="post" novalidate>
+						<div class="omf-popup__field">
+							<label for="omf-popup-name"><?php esc_html_e( 'Nom complet', 'oh-my-food' ); ?></label>
+							<input id="omf-popup-name" name="contest_name" type="text" autocomplete="name" required />
+						</div>
+						<div class="omf-popup__field">
+							<label for="omf-popup-email"><?php esc_html_e( 'Adresse e-mail', 'oh-my-food' ); ?></label>
+							<input id="omf-popup-email" name="contest_email" type="email" autocomplete="email" required />
+						</div>
+						<button type="submit" class="omf-button omf-button--primary omf-popup__submit">
+							<?php esc_html_e( 'Je participe', 'oh-my-food' ); ?>
+						</button>
+					</form>
+
+					<p id="omf-popup-sr-note" class="screen-reader-text">
+						<?php esc_html_e( 'Le formulaire est une maquette pour cette etape. L envoi sera active a l etape suivante.', 'oh-my-food' ); ?>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

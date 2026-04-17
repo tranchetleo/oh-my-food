@@ -39,6 +39,42 @@ function wpchild_enqueue_scripts(){
   );
 }
 
+/*
+ * IDs fixes des formulaires Contact Form 7 utilises par le theme enfant.
+ * Ajuster ces valeurs pour qu'elles correspondent aux IDs presents en admin.
+ */
+if ( ! defined( 'OH_MY_FOOD_CF7_RESERVATION_FORM_ID' ) ) {
+	define( 'OH_MY_FOOD_CF7_RESERVATION_FORM_ID', '3f739c8' );
+}
+
+if ( ! defined( 'OH_MY_FOOD_CF7_CONTEST_FORM_ID' ) ) {
+	define( 'OH_MY_FOOD_CF7_CONTEST_FORM_ID', '8cccb11' );
+}
+
+/**
+ * Retourne le rendu d'un formulaire Contact Form 7.
+ */
+function oh_my_food_render_cf7_form( $form_id, $form_title, $html_class ) {
+	$form_id = sanitize_text_field( (string) $form_id );
+
+	if ( '' === $form_id || ! shortcode_exists( 'contact-form-7' ) ) {
+		if ( current_user_can( 'manage_options' ) ) {
+			return '<p class="omf-form-notice">Contact Form 7 est inactif ou l ID du formulaire est invalide.</p>';
+		}
+
+		return '';
+	}
+
+	$shortcode = sprintf(
+		'[contact-form-7 id="%1$s" title="%2$s" html_class="%3$s"]',
+		$form_id,
+		esc_attr( $form_title ),
+		esc_attr( $html_class )
+	);
+
+	return do_shortcode( $shortcode );
+}
+
 /* Renomme l'item Home du menu principal en Accueil sans casser le menu WordPress. */
 add_filter( 'wp_nav_menu_objects', 'oh_my_food_rename_home_menu_item', 10, 2 );
 function oh_my_food_rename_home_menu_item( $items, $args ) {
@@ -54,5 +90,3 @@ function oh_my_food_rename_home_menu_item( $items, $args ) {
 
     return $items;
 }
-
-

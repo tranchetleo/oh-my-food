@@ -170,41 +170,13 @@ get_header();
 
 				<div class="omf-restaurant-reservation__content">
 					<h2 id="omf-restaurant-reservation-title" class="omf-restaurant-reservation__title">Faire une reservation</h2>
-					<p id="omf-restaurant-reservation-note" class="screen-reader-text">Ce formulaire est presente a titre de demonstration visuelle et ne traite pas les soumissions.</p>
-
-					<form class="omf-restaurant-form" action="<?php echo esc_url($reservation_url); ?>" method="post" aria-describedby="omf-restaurant-reservation-note">
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-first-name">Prenom <span aria-hidden="true">*</span></label>
-							<input id="omf-reservation-first-name" name="first_name" type="text" required />
-						</div>
-
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-last-name">Nom <span aria-hidden="true">*</span></label>
-							<input id="omf-reservation-last-name" name="last_name" type="text" required />
-						</div>
-
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-email">Adresse mail <span aria-hidden="true">*</span></label>
-							<input id="omf-reservation-email" name="email" type="email" required />
-						</div>
-
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-phone">N de telephone <span aria-hidden="true">*</span></label>
-							<input id="omf-reservation-phone" name="phone" type="tel" required />
-						</div>
-
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-date">Date <span aria-hidden="true">*</span></label>
-							<input id="omf-reservation-date" name="reservation_date" type="date" required />
-						</div>
-
-						<div class="omf-restaurant-form__field">
-							<label for="omf-reservation-message">Message (optionnel)</label>
-							<textarea id="omf-reservation-message" name="message" rows="3"></textarea>
-						</div>
-
-						<button class="omf-button omf-button--primary omf-restaurant-form__submit" type="submit">Reserver</button>
-					</form>
+					<?php
+					echo oh_my_food_render_cf7_form(
+						OH_MY_FOOD_CF7_RESERVATION_FORM_ID,
+						'Reservation restaurant',
+						'omf-restaurant-form omf-cf7 omf-cf7--reservation'
+					);
+					?>
 				</div>
 			</div>
 		</div>

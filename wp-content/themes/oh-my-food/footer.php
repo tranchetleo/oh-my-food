@@ -102,22 +102,16 @@
 						<?php esc_html_e( 'Participez au tirage et gagnez une experience gastronomique exclusive dans un restaurant partenaire.', 'oh-my-food' ); ?>
 					</p>
 
-					<form class="omf-popup__form" data-omf-popup-form action="#" method="post" novalidate>
-						<div class="omf-popup__field">
-							<label for="omf-popup-name"><?php esc_html_e( 'Nom complet', 'oh-my-food' ); ?></label>
-							<input id="omf-popup-name" name="contest_name" type="text" autocomplete="name" required />
-						</div>
-						<div class="omf-popup__field">
-							<label for="omf-popup-email"><?php esc_html_e( 'Adresse e-mail', 'oh-my-food' ); ?></label>
-							<input id="omf-popup-email" name="contest_email" type="email" autocomplete="email" required />
-						</div>
-						<button type="submit" class="omf-button omf-button--primary omf-popup__submit">
-							<?php esc_html_e( 'Je participe', 'oh-my-food' ); ?>
-						</button>
-					</form>
+					<?php
+					echo oh_my_food_render_cf7_form(
+						OH_MY_FOOD_CF7_CONTEST_FORM_ID,
+						'Jeu concours',
+						'omf-popup__form omf-cf7 omf-cf7--contest'
+					);
+					?>
 
 					<p id="omf-popup-sr-note" class="screen-reader-text">
-						<?php esc_html_e( 'Le formulaire est une maquette pour cette etape. L envoi sera active a l etape suivante.', 'oh-my-food' ); ?>
+						<?php esc_html_e( 'Le formulaire envoie votre participation au jeu concours.', 'oh-my-food' ); ?>
 					</p>
 				</div>
 			</div>

@@ -82,7 +82,6 @@ function initContestPopup() {
 
     var popupDialog = popup.querySelector('.omf-popup__dialog');
     var closeTriggers = popup.querySelectorAll('[data-omf-popup-close]');
-    var popupForm = popup.querySelector('[data-omf-popup-form]');
     var sessionKey = 'omfContestPopupSeen';
     var previousFocusedElement = null;
     var canUseSessionStorage = true;
@@ -158,18 +157,25 @@ function initContestPopup() {
         closeTriggers[index].addEventListener('click', closePopup);
     }
 
-    if (popupForm) {
-        popupForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            closePopup();
-        });
-    }
-
     document.addEventListener('keydown', function (event) {
         if ('Escape' === event.key && !popup.hidden) {
             event.preventDefault();
             closePopup();
         }
+    });
+
+    document.addEventListener('wpcf7mailsent', function (event) {
+        var formContainer = event.target;
+
+        if (!formContainer || !formContainer.classList || !formContainer.classList.contains('omf-cf7--contest')) {
+            return;
+        }
+
+        window.setTimeout(function () {
+            if (!popup.hidden) {
+                closePopup();
+            }
+        }, 1400);
     });
 
     try {

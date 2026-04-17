@@ -362,17 +362,17 @@ small,
 }
 
 .omf-home-restaurants {
-    padding: 76px 24px 96px;
+    padding: 88px 24px 112px;
     scroll-margin-top: 120px;
 }
 
 .omf-home-restaurants__inner {
-    width: 80%;
+    width: min(100%, 1180px);
     margin: 0 auto;
 }
 
 .omf-home-restaurants__title {
-    margin: 0 0 34px;
+    margin: 0 0 42px;
     text-align: center;
     font-size: clamp(28px, 3vw, 36px) !important;
 }
@@ -1021,10 +1021,10 @@ small,
 .omf-footer__inner {
     width: min(100%, var(--omf-content-width));
     margin: 0 auto;
-    padding: 56px 24px;
+    padding: 64px 24px 60px;
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 56px;
 }
 
 .omf-footer__brand,
@@ -1035,7 +1035,7 @@ small,
 .omf-footer__brand {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 22px;
 }
 
 .omf-footer__brand-link {
@@ -1058,30 +1058,40 @@ small,
     margin: 0;
     max-width: 50ch;
     color: var(--omf-color-surface);
+    line-height: 1.7;
 }
 
 .omf-footer__links-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 32px;
+    align-items: flex-start;
+    gap: 48px;
 }
 
 .omf-footer__heading {
-    margin: 0 0 16px;
+    margin: 0 0 18px;
     color: var(--omf-color-surface);
     font-size: 1.35rem;
+}
+
+.omf-footer__links-block,
+.omf-footer__nav {
+    min-width: 0;
 }
 
 .omf-footer__links,
 .omf-footer__menu {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .omf-footer a {
+    display: inline-flex;
+    align-items: center;
     color: var(--omf-color-surface);
     text-decoration: none;
+    line-height: 1.5;
     transition: color var(--omf-transition);
 }
 
@@ -1177,6 +1187,18 @@ small,
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .omf-home-restaurants {
+        padding: 72px 24px 88px;
+    }
+
+    .omf-home-restaurants__inner {
+        width: min(100%, 960px);
+    }
+
+    .omf-home-restaurants__title {
+        margin-bottom: 34px;
+    }
+
     .omf-hero {
         min-height: calc(78vh - 80px);
         background-attachment: scroll;
@@ -1229,13 +1251,33 @@ small,
         gap: 36px;
     }
 
+    .omf-restaurant-hero__text {
+        flex: 1 1;
+    }
+
     .omf-restaurant-hero__actions {
         width: 100%;
         align-items: flex-start;
+        flex: 0 0;
     }
 
     .omf-restaurant-reviews {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .omf-footer__inner {
+        padding-top: 52px;
+        padding-bottom: 48px;
+        gap: 36px;
+    }
+
+    .omf-footer__links-wrapper {
+        flex: 1 1;
+        gap: 28px;
+    }
+
+    .omf-footer__brand{
+        flex: 1 1;
     }
 
     h1 {
@@ -1330,6 +1372,10 @@ small,
         margin-bottom: 28px;
     }
 
+    .omf-home-restaurants__inner {
+        width: 100%;
+    }
+
     .omf-home-restaurants__grid {
         gap: 24px 16px;
     }
@@ -1404,8 +1450,8 @@ small,
         height: 28px;
     }
 
-    .omf-restaurant-section {
-        padding: 68px 0;
+    #reservation {
+        padding: 0;
     }
 
     .omf-restaurant-reviews {
@@ -1442,5 +1488,28 @@ small,
 
     .omf-home-restaurants__grid {
         grid-template-columns: 1fr;
+    }
+
+    .omf-footer__inner {
+        padding-top: 44px;
+        padding-bottom: 40px;
+        gap: 28px;
+    }
+
+    .omf-footer__links-wrapper {
+        gap: 24px;
+    }
+
+    .omf-footer__brand {
+        gap: 18px;
+    }
+
+    .omf-footer__heading {
+        margin-bottom: 14px;
+    }
+
+    .omf-footer__links,
+    .omf-footer__menu {
+        gap: 12px;
     }
 }

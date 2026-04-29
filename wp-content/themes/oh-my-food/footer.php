@@ -89,7 +89,7 @@
 				<div class="omf-popup__media">
 					<img
 						class="omf-popup__image"
-						src="<?php echo esc_url( get_stylesheet_directory_uri() . '/service_1.jpg' ); ?>"
+						src="<?php echo esc_url( get_stylesheet_directory_uri() . '/service_1.webp' ); ?>"
 						alt="<?php esc_attr_e( 'Visuel temporaire de la roue du jeu concours Ohmyfood', 'oh-my-food' ); ?>"
 						loading="lazy"
 					/>

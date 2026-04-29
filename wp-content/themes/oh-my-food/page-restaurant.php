@@ -8,8 +8,8 @@ $restaurant = array(
 	'address'           => '7 rue des Champs Elysees',
 	'rating'            => 5.0,
 	'tags'              => array('Vegetarien', 'Gluten Free'),
-	'hero_image'        => 'resautant_1.jpg',
-	'reservation_image' => 'resautant_11.jpg',
+	'hero_image'        => 'resautant_1_large.webp',
+	'reservation_image' => 'resautant_11_large.webp',
 );
 
 $description_paragraphs = array(

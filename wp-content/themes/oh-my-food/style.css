@@ -129,7 +129,7 @@ small,
 .omf-hero {
     position: relative;
     min-height: calc(100vh - 80px);
-    background-image: url('home_hero.jpg');
+    background-image: url('home_hero.webp');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -137,7 +137,7 @@ small,
 }
 
 .omf-about-hero {
-    background-image: url('resautant_3.jpg');
+    background-image: url('about_hero.webp');
 }
 
 .omf-hero__overlay {

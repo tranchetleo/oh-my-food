@@ -7,17 +7,17 @@ $restaurants_anchor_url = home_url('/#restaurants');
 
 $services = array(
 	array(
-		'image'   => 'service_1.jpg',
+		'image'   => 'service_1.webp',
 		'title'   => 'Sélection des meilleurs restaurants',
 		'content' => 'Ohmyfood propose une sélection rigoureuse de restaurants gastronomiques testés et validés par des critiques culinaires. Chaque établissement est choisi pour la qualité de sa cuisine, de son service et de son expérience globale.',
 	),
 	array(
-		'image'   => 'service_2.jpg',
+		'image'   => 'service_2.webp',
 		'title'   => 'Réservation simplifiée',
 		'content' => 'La plateforme permet de réserver facilement une table dans des restaurants très demandés. Grâce aux partenariats établis avec les établissements, Ohmyfood facilite l’accès à des tables souvent difficiles à obtenir.',
 	),
 	array(
-		'image'   => 'service_3.jpg',
+		'image'   => 'service_3.webp',
 		'title'   => 'Découverte gastronomique',
 		'content' => 'Ohmyfood met en avant les chefs, les cuisines et les univers culinaires des restaurants partenaires. Les visiteurs peuvent découvrir les spécialités, l’histoire des lieux et choisir l’expérience gastronomique qui correspond le mieux à leurs attentes.',
 	),
@@ -26,7 +26,7 @@ $services = array(
 $editorial_sections = array(
 	array(
 		'title'      => 'Qu’est-ce que Ohmyfood ?',
-		'image'      => 'about_1.jpg',
+		'image'      => 'about_1.webp',
 		'image_side' => 'left',
 		'content'    => array(
 			'Ohmyfood est une plateforme de réservation dédiée à la gastronomie et aux restaurants d’exception. Fondée en 2021 par François Baudouin, ancien critique gastronomique, l’entreprise est née d’un constat simple : il est souvent difficile de choisir un restaurant haut de gamme lorsque l’on souhaite vivre une expérience culinaire mémorable.',
@@ -37,7 +37,7 @@ $editorial_sections = array(
 	),
 	array(
 		'title'      => 'Comment fonctionne Ohmyfood ?',
-		'image'      => 'about_2.jpg',
+		'image'      => 'about_2.webp',
 		'image_side' => 'right',
 		'content'    => array(
 			'Ohmyfood ne se contente pas de référencer des restaurants. La plateforme travaille en étroite collaboration avec chacun de ses partenaires afin de proposer une expérience fluide et rassurante aux utilisateurs.',
